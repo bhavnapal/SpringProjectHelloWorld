@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<title>head</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+
+		$("#header").load("header.html");
+		$("#nav").load("technical_panel_nav.html");
+		$("#footer").load("footer.html");
+		
+	});
+ $(document).ready(function() {
+            $('#example').DataTable();
+             } );
+                 
+</script>
+
+</head>
+
+<div id="header"></div>
+	<div id="nav"></div>
+
+
+<body>
+<div>
+	<div class="container">
+		<!-- 
+		<div class="col-sm-3">
+			APPLICANT ID: <input type="number" class="form-control"
+				name="APPLICANT_ID">
+			</td> 
+			<br>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div> -->
+		<br>
+		<div class="table-responsive" align="center">
+		<table id="evaluationTable1" class="table "  >
+			
+			<thead>
+			<tr class="bg-primary">
+				<th colspan="4"><h3><center>ONLY FOR INTERNAL EVALUATION</center></h3></th>
+			</tr>
+			<tr class="bg-info">			
+					<td>APPLICANT ID<input type="text" class="form-control"
+						name="APPLICANT_ID"></td>
+					<td>INTERVIEWER ID<input type="text" class="form-control"
+						name="INTERVIEWER_ID"></td>	
+					<td>INTERVIEW DATE<input type="DATE" class="form-control"
+						name="INTERVIEW_DATE"></td>	
+					<td>MODE OF INTERVIEW<input type="text" class="form-control"
+						name="MODEOF_INTERVIEW"></td>	
+					
+					
+			</tr>
+			<tr class="bg-primary">
+			<th rowspan="2"><h4>TECHNICAL SKILLS</h4></th>
+				<td colspan="3"><b><center>1 TO 5(5 BEING HIGHEST)<center></b></td>
+			</tr>
+			<tr class="bg-primary">
+				<td><b>ROUND 1</b></td>
+				<td><b>ROUND 2</b></td>
+				<td><b>ROUND 3</b></td>
+			</tr>
+						
+			</thead>
+						
+			<tbody>
+				<tr class="bg-info">
+					<td scope="row" >DESIGN SKILLS</td>
+					<td><input type="number" class="form-control"
+						name="DESIGN_SKILL1"></td>
+					<td><input type="number" class="form-control"
+						name="DESIGN_SKILL2"></td>
+					<td><input type="number" class="form-control"
+						name="DESIGN_SKILL3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td >CODING SKILLS</td>
+					<td><input type="number" class="form-control"
+						name="CODING_SKILL1"></td>
+					<td><input type="number" class="form-control"
+						name="CODING_SKILL2"></td>
+					<td><input type="number" class="form-control"
+						name="CODING_SKILL3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td>TROUBLE-SHOOTING SKILLS</td>
+					<td><input type="number" class="form-control"
+						name="TROUBLE_SHOOTING_SKILL1"></td>
+					<td><input type="number" class="form-control"
+						name="TROUBLE_SHOOTING_SKILL2"></td>
+					<td><input type="number" class="form-control"
+						name="TROUBLE_SHOOTING_SKILL3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td >COMMUNICATION SKILLS</td>
+					<td><input type="number" class="form-control"
+						name="COMM_SKILL1"></td>
+					<td><input type="number" class="form-control"
+						name="COMM_SKILL2"></td>
+					<td><input type="number" class="form-control"
+						name="COMM_SKILL3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td >DB SKILLS</td>
+					<td><input type="number" class="form-control" name="DB_SKILL1"></td>
+					<td><input type="number" class="form-control" name="DB_SKILL2"></td>
+					<td><input type="number" class="form-control" name="DB_SKILL3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td >TEAM HANDLING</td>
+					<td><input type="number" class="form-control"
+						name="TEAM_HANDLING1"></td>
+					<td><input type="number" class="form-control"
+						name="TEAM_HANDLING2"></td>
+					<td><input type="number" class="form-control"
+						name="TEAM_HANDLING3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td >FUNCTION EXPOSURE</td>
+					<td><input type="number" class="form-control"
+						name="FUNCTION_EXPOSURE1"></td>
+					<td><input type="number" class="form-control"
+						name="FUNCTION_EXPOSURE2"></td>
+					<td><input type="number" class="form-control"
+						name="FUNCTION_EXPOSURE3"></td>
+				</tr>
+				<tr class="bg-info">
+					<td>FINAL EVALUATION</td>
+					<td><input type="number" class="form-control"
+						name="FINAL_EVALUATION1"></td>
+					<td><input type="number" class="form-control"
+						name="FINAL_EVALUATION2"></td>
+					<td><input type="number" class="form-control"
+						name="FINAL_EVALUATION3"></td>
+				</tr>
+			
+				<tr class="bg-info">
+					<td >STATUS</td>
+					<td colspan="3"><input type="text" class="form-control"
+						name="STATUS"></td>
+				</tr>
+				
+				<tr class="bg-info">
+					<td >COMMENTS</td>
+					<td colspan="3">
+					<textarea rows="4" cols="50" class="form-control" name="COMMENT"></textarea>
+					</td>						
+					
+				</tr>	
+				<tr class="bg-info">
+					<td colspan="4" align="center">
+					<button type="submit" class="btn btn-primary">SUBMIT</button>
+					</td>						
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+		
+	</div>
+	</div>
+	
+<div id="footer"></div>
+
+
+</body>
+</html>

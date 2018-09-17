@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<title>Spring Boot - DELETE-UPDATE AJAX Example</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script
+	src="js/jquery-3.1.1.js"></script>
+<script
+	src="js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="css/bootstrap.min.css" />
+	
+	<script>
+	function getdata(){
+		var ctype=$('#ctype').val()
+				console.log("in "+ctype);
+		if(ctype == "Experience")
+		{
+		$('#viewexptable').show();
+		}
+	 else
+		{
+			$('#viewexptable').hide();
+		} 
+	}
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+
+		$("#header").load("header.html");
+		$("#nav").load("recruitment_team_nav.html");
+		$("#footer").load("footer.html");
+		
+	});
+ $(document).ready(function() {
+            $('#example').DataTable();
+             } );
+                 
+</script>
+</head>
+
+<div id="header"></div>
+	<div id="nav"></div>
+
+<body>
+	<div class="container bg-info">
+		<form>
+			<h1 align="center">
+				CANDIDATE APPLICATION FORM
+				<br>
+			</h1>
+			<div align="center">
+			<label>Candidate Type</label>
+					<select id="ctype" name="ctype" onchange="getdata()">
+					<option  value="fresher">Fresher</option>
+					<option value="Experience">Experience</option>					
+					</select>
+			</div>
+			<div class="form-group col-sm-3 col-md-offset-2">
+				<label  class="control-label"for="TeamLeader Id">Name:</label> <input type="text"
+					class="form-control" id="TeamLeader Id" aria-describedby="jobid" name="name"
+					placeholder="Enter TeamLeader Id">
+			</div>
+			<div class="form-group col-sm-3 col-md-offset-2">
+				<label  class="control-label"for="TeamLeader Id">Date:</label> <input type="date"
+					class="form-control" id="TeamLeader Id" aria-describedby="jobid" name="date">
+				
+			</div>
+			<div class="form-group col-sm-3 col-md-offset-2" >
+				<label for="Job Descrpition Id">Tel(Off/Res/Mob):</label> <input
+					type="text" class="form-control" id="Experience"
+					aria-describedby="jobid" placeholder="Enter no of experience" name="tel">
+			</div>
+
+			<div class="form-group col-sm-3 col-md-offset-2" >
+				<label for=">TechnicalSkills">Email Id:</label> <input
+					type="text" class="form-control" id="TechnicalSkills"
+					aria-describedby="jobid" placeholder="Enter TechnicalSkills" name="email">
+			</div>
+			<div class="form-group col-sm-3 col-md-offset-2" >
+				<label for="Profile">Total Experience(Yrs):</label> <input type="text"
+					class="form-control" id="Profile" aria-describedby="jobid" name="Texp">
+			</div>
+			<div class="form-group col-sm-3 col-md-offset-2" >
+				<label for="Qualification">Relevant Exp(Yrs):</label>
+				<input type="text"class="form-control" id="Qualification"
+					aria-describedby="jobid" placeholder="Enter Qualification" name="Rexp">
+			</div>
+			</div>	
+			<div class="container bg-info" align="center">	
+                  <label>Qualification Details:</label>			
+				<table id="applicationForm" class="table table-bordered table-hover ">	
+				<thead>
+				<tr class="bg-primary">
+					<th  scope="col">Degree/Diploma</th>
+					<th scope="col">Institute</th>
+					<th scope="col">Passing Year</th>
+					<th  scope="col">University Board</th>
+					<th  scope="col">Score%</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				<td><b>Last Qualification</b></td>
+				<td><input type="text" name="P_Degree"></td>
+				<td><input type="date" name="P_Institute"></td>
+				<td><input type="text" name="P_YOP"></td>
+				<td><input type="text" name="P_Perc"></td>
+				</tr>
+					
+			</table>
+			</div>
+		
+			<div  style="display:none;" class="container bg-info" id="viewexptable" align="center">
+			<label>Experience Details::</label>
+				<table id="applicationForm" class="table table-bordered table-hover ">	
+				<thead>
+				<tr class="bg-primary">
+					<th  scope="col">Company name</th>
+					<th scope="col">Designation</th>
+					<th scope="col">From</th>
+					<th  scope="col">Responsibilities</th>
+					<th  scope="col">Reason to change</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+				<td><input type="text" name="Cname1"></td>
+				<td><input type="text" name="Designation1"></td>
+				<td><input type="date" name="from_date1"></td>
+				<td><input type="text" name="Resp1"></td>
+				<td><input type="text" name="reason1"></td>
+				</tr>
+				</tbody>		
+				</table>
+				
+		        </div>
+				
+			 <div class="container bg-info" >
+			<div class="form-group col-sm-3 col-md-offset-2">
+				<label for="Name">Certifications(If Any):</label> <input type="text"
+					class="form-control" id="Profile" style="width:260px" aria-describedby="jobid" name="certification"/>
+					<br>
+					</div>
+				<div class="form-group col-sm-4 col-md-offset-2">
+					<label class="control-label col-sm-2 for="test">Test Result:</label>
+				<div class="col-sm-9">
+					<select class="form-control" id="Profile" name="test">
+						<option value="#">--select--</option>
+						<option value="clear">Test Cleared</option>
+						<option value="notclear">Not Cleared</option>
+						</select>
+					</div>
+					</div>
+					<br>
+					
+					<div class="form-group">
+				<div class="col-sm-offset-5 col-sm-5">
+					<button type="button" class="btn btn-info">SUBMIT</button>
+						<button type="reset" class="btn btn-info">Reset</button>
+				</div>
+		<!-- <input type="button" name="submit" value="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" value="Reset"> -->
+	    
+		
+		
+	</form>
+	
+</div>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap User Management Data Table</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/list.css">
+
+<script type="text/javascript" src="./js/jqueryAjaxGet.js"></script>
+<style type="text/css">
+@media print {
+	body {
+		visibility: hidden; /* no print*/
+	}
+	.print {
+		visibility: visible; /*print*/
+	}
+}
+</style>
+<script type="text/javascript">
+	function myFunction() {
+		window.print();
+	}
+</script>
+</head>
+
+<div id="header"></div>
+<div id="nav"></div>
+<body>
+	<div class="container-fluid">
+		<div>
+			<div class="table-title">
+				<div class="row">
+					<div class="col-sm-5">
+						<h2>
+							JOB DESCRIPTION LIST
+						</h2>
+					</div>
+					<div class="col-sm-7">
+						<a href="job_description_form.html" class="btn btn-primary"
+							data-toggle="modal" data-target="#myModal"><i
+							class="material-icons">&#xE147;</i> <span>Add Request</span></a>
+					</div>
+
+				</div>
+			</div>
+			<div class="table-responsive">
+				<table id="example" class="table table-striped table-hover" style="width: 100%" >
+					<thead class="thead-light">
+						<tr>
+							<th>JOB DESCRIPTION ID</th>
+							<th>PROFILE</th>
+							<th>MANAGER NAME</th>
+							<th>RAISED ON DATE</th>
+							<th>ACTION</th>
+							<th>STATUS</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1001</td>
+							<td>Java Developer</td>
+							<td>Zubin</td>
+							<td>19/01/2019</td>
+							<td><a href="#" style="color: #2196F3;" title="View"
+								data-toggle="modal" data-target="#myModal"><i
+									class="material-icons">&#xE417;</i></a> <a
+								href="job_description_form.html" style="color: #FFC107;"
+								title="Edit"><i class="material-icons">&#xE254;</i></a> <a
+								href="#" style="color: #ff5b5b;" title="Delete"
+								data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+							</td>
+							<td>Pending</td>
+						</tr>
+						<tr>
+							<td>1002</td>
+							<td>Java Developer</td>
+							<td>Guhan</td>
+							<td>27/01/2019</td>
+							<td><a href="#" style="color: #2196F3;" title="View"
+								data-toggle="modal" data-target="#myModal"><i
+									class="material-icons">&#xE417;</i></a> <a
+								href="job_description_form.html" style="color: #FFC107;"
+								title="Edit"><i class="material-icons">&#xE254;</i></a> <a
+								href="#" style="color: #ff5b5b;" title="Delete"
+								data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+							</td>
+							<td>Pending</td>
+						</tr>
+
+					</tbody>
+				</table>
+				
+				<div id="resultMsgDiv">
+				</div>
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="print">
+
+							<div class="container">
+
+								<!-- JOB DESCRIPTION FORM -->
+
+								<form class="form-horizontal">
+									<h1 style="text-align: center;">JOB DESCRIPTION REQUEST</h1>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Date">Date:</label>
+										<div class="col-sm-2">
+											<input type="date" class="form-control" id="Date"
+												placeholder="Enter Date:">
+										</div>
+										<label class="control-label col-sm-2" for="Profile">Profile:</label>
+										<div class="col-sm-2">
+											<select class="form-control" id="Profile">
+												<option value="#">--select--</option>
+												<option value="Developer">Developer</option>
+												<option value="Tester">Tester</option>
+												<option value="analyst">Analyst</option>
+												<option value="db_developer">DB Developer</option>
+												<option value="Support_engg ">Support Engineer</option>
+												<option value="network_engg">Network Engineer</option>
+												<option value="sales">Sales And Marketing</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Project">Project:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Project"
+												aria-describedby="jobid" placeholder="Enter Project Name"></textarea>
+										</div>
+										<label class="control-label col-sm-2" for="Experience">Experience:</label>
+										<div class="col-sm-3">
+											<input type="text" class="form-control" id="Experience"
+												aria-describedby="jobid" placeholder="Enter Experience:">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Qualification">Qualification:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Qualification"
+												aria-describedby="jobid" placeholder="Enter Oualification"></textarea>
+										</div>
+										<label class="control-label col-sm-2" for="Certification">Certification:</label>
+										<div class="col-sm-3">
+											<textarea class="form-control" id="Certification"
+												aria-describedby="jobid"
+												placeholder="Enter Certification Name"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2"
+											for="Skill_Set_Mandetory">Skill Set (Mandatory):</label>
+										<div class="col-sm-2">
+											aria-describedby="jobid"
+											<textarea class="form-control" id="Skill_Set_Mandetory"
+												placeholder="Enter Mandetory Skill Set"></textarea>
+										</div>
+										<label class="control-label col-sm-2" for="Skill_Set_Optional">Skill
+											Set (Optional):</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Skill_Set_Optional"
+												aria-describedby="jobid"
+												placeholder="Enter Optional Skill Set"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Job_Responsibility">Job
+											Responsibility:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Job_Responsibility"
+												aria-describedby="jobid"
+												placeholder="Enter job Responsibilty"></textarea>
+										</div>
+										<label class="control-label col-sm-2"
+											for="Expected_Date_of_joining">Expected Date of
+											Joining :</label>
+										<div class="col-sm-2">
+											<input type="date" class="form-control"
+												id="Expected_Date_of_joining" aria-describedby="jobid"
+												placeholder="Enter Expected Date of joining">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-5 col-sm-5">
+											<button type="button" class="btn btn-success btn-lg"
+												onclick="addJobDescRecq()" data-dismiss="modal">SUBMIT</button>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row well">
+								<button class="btn btn-primary hidden-print"
+									onclick="myFunction()">
+									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+									Print
+								</button>
+								<button type="button" class="btn btn-danger"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<!-- Modal 2nd for view data-->
+		
+		       
+		<div class="modal fade" id="myModal1" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+					
+						<button type="button" id="cancel" class="close"  onclick="javascript:window.location.reload()" data-dismiss="modal">&times;</button>
+						<div class="print">
+							<h3 class="modal-title">JOB DESCRIPTION</h3><br>
+							<div class="container">
+				     <form class="form-horizontal">
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">JOB DESCRIPTION ID:</label>
+
+						<p style="text-align: left"
+							class="col-sm-2 control-label text-center" id="jobDescId"></p>
+					</div>
+
+					
+
+
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">RAISED ON DATE:</label>
+						<p style="text-align: left"
+							class="col-sm-2 control-label text-center" id="raisedonDate"></p>
+					</div>
+					
+				
+
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">EXPERIENCE :</label>
+						<p style="text-align: left" class="col-sm-2 control-label text-center" id="experience"></p>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">SKILL SET(Mandatory) :</label>
+
+						<p style="text-align: left" class="col-sm-2 control-label text-center" id="skill_mand"></p>
+					</div>
+
+
+					<div class="form-group">
+						<label for="Departure Time" class="col-sm-2 control-label">SKILL SET(Optional):</label>
+						<p style="text-align: left" class="col-sm-2 control-label text-center"  id="skill_opt"></p>
+					</div>
+
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">PROFILE:</label>
+						<p style="text-align: left" class="col-sm-2 control-label text-center"  id="profile"></p>
+					</div>
+
+					<div class="form-group">
+						<label for="foods" class="col-sm-2 control-label">QUALIFICATION :</label>
+						<p style="text-align: left" class="col-sm-2 control-label text-center" id="qualification"></p>
+					</div>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">EXPECTED DATE OF JOINING :</label>
+						<p style="text-align: left" class="col-sm-2 control-label text-center" id="expected_doj"></p>
+					</div>
+					
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">CERTIFICATION :</label>
+						<p style="text-align: left" class="col-sm-2 control-label " id="certification"></p>
+					</div>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">RESPONSIBILITY :</label>
+						<p style="text-align: left" class="col-sm-2 control-label "  id="responsibility"></p>
+					</div>
+					<div class="form-group">
+						<label  class="col-sm-2 control-label">PROJECT :</label>
+						<p style="text-align: left" class="col-sm-2 control-label " id="project"></p>
+					</div>
+										
+					</form>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row well">
+								<button class="btn btn-primary hidden-print"
+									onclick="myFunction()">
+									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+									Print
+								</button>
+								<button id="cancel"  type="button" class="btn btn-default"
+									data-dismiss="modal" onclick="javascript:window.location.reload()">Close</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		
+		
+		<!-- Mopdel 3 for update -->
+		
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal2" role="dialog">
+			<div class="modal-dialog modal-lg">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<div class="print">
+
+							<div class="container">
+
+								<!-- JOB DESCRIPTION FORM -->
+
+								<form class="form-horizontal">
+									<h1 style="text-align: center;">JOB DESCRIPTION REQUEST</h1>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Date">Date:</label>
+										<div class="col-sm-2">
+											<input type="date" value="" class="form-control" id="Date1"
+												placeholder="Enter Date:">
+										</div>
+										
+										
+										<label class="control-label col-sm-2" for="Profile">Profile:</label>
+										<div class="col-sm-2">
+											<input type="text" class="form-control" id="Profile1">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Project">Project:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Project1"
+												aria-describedby="jobid" placeholder="Enter Project Name"></textarea>
+										</div>
+										
+										<label class="control-label col-sm-2" for="Experience">Experience:</label>
+										<div class="col-sm-3">
+											<input type="text" class="form-control" id="Experience1"
+												aria-describedby="jobid" placeholder="Enter Experience:">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Qualification">Qualification:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Qualification1"
+												aria-describedby="jobid" placeholder="Enter Oualification"></textarea>
+										</div>
+										<label class="control-label col-sm-2" for="Certification">Certification:</label>
+										<div class="col-sm-3">
+											<textarea class="form-control" id="Certification1"
+												aria-describedby="jobid"
+												placeholder="Enter Certification Name"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2"
+											for="Skill_Set_Mandetory">Skill Set (Mandatory):</label>
+										<div class="col-sm-2">
+											aria-describedby="jobid"
+											<textarea class="form-control" id="Skill_Set_Mandetory1"
+												placeholder="Enter Mandetory Skill Set"></textarea>
+										</div>
+										<label class="control-label col-sm-2" for="Skill_Set_Optional">Skill
+											Set (Optional):</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Skill_Set_Optional1"
+												aria-describedby="jobid"
+												placeholder="Enter Optional Skill Set"></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-sm-2" for="Job_Responsibility">Job
+											Responsibility:</label>
+										<div class="col-sm-2">
+											<textarea class="form-control" id="Job_Responsibility1"
+												aria-describedby="jobid"
+												placeholder="Enter job Responsibilty"></textarea>
+										</div>
+										<label class="control-label col-sm-2"
+											for="Expected_Date_of_joining">Expected Date of
+											Joining :</label>
+										<div class="col-sm-2">
+											<input type="date" class="form-control"
+												id="Expected_Date_of_joining1" aria-describedby="jobid"
+												placeholder="Enter Expected Date of joining">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-5 col-sm-5">
+											<button type="button" class="btn btn-success btn-lg"
+												onclick="myFunctionUpdate()" data-dismiss="modal">UPDATE</button>
+										</div>
+									</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="row well">
+								<button class="btn btn-primary hidden-print"
+									onclick="myFunction()">
+									<span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+									Print
+								</button>
+								<button type="button" class="btn btn-danger"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+		
+		
+
+	</div>
+	<div id="footer"></div>
+</body>
+
+</html>
